@@ -1,0 +1,409 @@
+<Window
+	x:Class="New_SF_IT.Logout" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT"
+	WindowStartupLocation="CenterScreen"
+	WindowStyle="None"
+	AllowsTransparency="True"
+	Background="#00FFFFFF"
+	Title="Login"
+	Height="450"
+	Width="800"
+	Loaded="logoutWindow_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="47*" />
+			<RowDefinition
+				Height="28*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="1.5*" />
+		</Grid.ColumnDefinitions>
+		<Border
+			CornerRadius="10 0 0 10"
+			Grid.RowSpan="2">
+			<Border.Background>
+				<LinearGradientBrush
+					StartPoint="0,0"
+					EndPoint="1,1">
+					<GradientStop
+						Color="#8D83FF"
+						Offset="0" />
+					<GradientStop
+						Color="#6E92FF"
+						Offset="1" />
+				</LinearGradientBrush>
+			</Border.Background>
+			<Grid>
+				<Canvas>
+					<Polygon
+						Points="0,20 230,140 0,270"
+						Fill="#FFFFFFFF"
+						Opacity="0.1" />
+				</Canvas>
+				<Image
+					Source="/images/cover2.png"
+					Height="300"
+					Width="300" />
+				<Image
+					Source="/images/stock_img1.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="251,106,39,314"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-21.767" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img2.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="-6,77,286,333"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="6.903" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img3.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="162,47,128,373"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="21.69" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img4.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="116,105,164,305"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-0.333" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img1.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="57,13,223,397"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="0.756" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img4.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="227,-1,63,421"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-25.774" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img3.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="21,352,259,58"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-24.773" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img2.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="76,413,204,-3"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="6.903" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img1.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="134,337,146,73"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="2.385" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img4.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="196,395,84,15"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="21.963" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img3.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="285,358,-5,52"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-24.773" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img1.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="-7,255,287,155"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="21.431" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img3.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="287,234,-7,176"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-29.437" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+				<Image
+					Source="/images/stock_img2.png"
+					Height="30"
+					Width="30"
+					Opacity="0.4"
+					Margin="276,40,14,380"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="6.903" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Image>
+			</Grid>
+		</Border>
+		<Border
+			Background="#ffffff"
+			Grid.Column="1"
+			CornerRadius="0 10 10 0"
+			Padding="0 20 0 0"
+			Grid.RowSpan="2">
+			<StackPanel
+				Orientation="Vertical"
+				VerticalAlignment="Center">
+				<Image
+					Source="pack://application:,,,/New SF_IT;component/images/logo4.png"
+					Height="60"
+					Margin="0 0 0 4" />
+				<TextBlock
+					Text="Thanks for using Smart Trading Tool - Free Edition"
+					HorizontalAlignment="Center"
+					FontSize="20"
+					FontWeight="SemiBold" />
+				<TextBlock
+					Text="( By Smart Finance )"
+					HorizontalAlignment="Center"
+					FontSize="16"
+					FontWeight="SemiBold"
+					Margin=" 0 0 0 15" />
+				<TextBlock
+					Text="Logout"
+					HorizontalAlignment="Center"
+					FontSize="26"
+					FontWeight="Bold"
+					Foreground="#4C56A6" />
+				<Border
+					BorderThickness="1"
+					BorderBrush="#acb0af"
+					Margin="70 7"
+					CornerRadius="5">
+					<Grid
+						Margin="7 9">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="auto" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Image
+							Source="/images/user_id.png"
+							Height="20" />
+						<TextBlock
+							Name="textUser"
+							Text="User ID"
+							Style="{StaticResource TextHint}"
+							MouseDown="textUser_MouseDown" />
+						<TextBox
+							Name="txtbUsername"
+							Style="{StaticResource textBox}"
+							TextChanged="txtUser_TextChanged" />
+					</Grid>
+				</Border>
+				<Button
+					Content="Logout"
+					Margin="0 10 0 0"
+					Height="35"
+					FontSize="20"
+					FontWeight="SemiBold"
+					Style="{StaticResource loginButtonStyle}"
+					Click="btnLogout_Click" />
+				<Label
+					Name="lbllogoutwait"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Center"
+					FontWeight="SemiBold"
+					Foreground="#ED756F"
+					Margin="0,10,0,0"
+					Content="Please wait,Logout process executing" />
+			</StackPanel>
+		</Border>
+		<Canvas
+			HorizontalAlignment="Right"
+			Grid.Column="1"
+			Margin="0,0,480,0"
+			Grid.RowSpan="2">
+			<Button
+				Name="btnLogin"
+				Background="#00FFFFFF"
+				Opacity="0.9"
+				BorderBrush="#00FFFFFF"
+				Canvas.Left="441"
+				Canvas.Top="8"
+				Click="CloseButton_Click">
+				<Image
+					Source="/images/close_icon.png"
+					Height="25" />
+			</Button>
+		</Canvas>
+		<ProgressBar
+			Name="progressBar"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Bottom"
+			Width="480"
+			Height="6"
+			Foreground="#FF6265B1"
+			Background="#FF8588F3"
+			Grid.Column="1"
+			Grid.Row="1" />
+		<WebBrowser
+			Name="wbLogout"
+			Margin="404,358,27,125"
+			RenderTransformOrigin="0.502,0.56">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform
+						ScaleY="-1"
+						ScaleX="-1" />
+					<SkewTransform />
+					<RotateTransform />
+					<TranslateTransform />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</WebBrowser>
+	</Grid>
+</Window>

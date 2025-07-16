@@ -1,0 +1,172 @@
+<Window
+	x:Class="New_SF_IT.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT"
+	Icon="pack://application:,,,/images/logo4.png"
+	Title="Smart Trading Tool - Free Edition"
+	Height="450"
+	Width="800"
+	WindowState="Maximized">
+	<DockPanel
+		LastChildFill="True">
+		<Menu
+			Name="topRibbon"
+			DockPanel.Dock="Top"
+			Style="{StaticResource CustomFont}"
+			FontSize="14"
+			Background="#27005D"
+			Foreground="#FFFFFFFF"
+			Padding="6"
+			Margin="0,0,0,0">
+			<MenuItem
+				Name="menuEquity"
+				Click="menuEquity_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Separator
+							Width="5"
+							Background="#00FFFFFF" />
+						<TextBlock
+							Text="Equity&amp;Future" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="10" />
+			<MenuItem
+				Name="menuOption"
+				Click="menuOption_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Source="/images/option.png"
+							Width="16"
+							Height="16"
+							Margin="0 0 5 0" />
+						<TextBlock
+							Text="Option" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="10" />
+			<MenuItem
+				Name="menuOptionWeekly"
+				Click="menuOptionWeekly_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Source="/images/option.png"
+							Width="16"
+							Height="16"
+							Margin="0 0 5 0" />
+						<TextBlock
+							Text="Option Weekly" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="10" />
+			<MenuItem
+				Name="menuOptionScanner"
+				Click="menuOptionScanner_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Source="/images/option_scanner.png"
+							Width="16"
+							Height="16"
+							Margin="0 0 5 0" />
+						<TextBlock
+							Text="Option Scanner" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="10" />
+			<MenuItem
+				Name="menupairtrade"
+				Click="menupairtrade_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Source="\images\pairtrade.png"
+							Width="16"
+							Height="16"
+							Margin="0 0 5 0" />
+						<TextBlock
+							Text="PairTrade" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="10" />
+			<MenuItem
+				Name="menucommodity"
+				Click="menucommodity_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Source="C:\Users\smart\source\repos\Test\Test\assets\commodity.png"
+							Width="16"
+							Height="16"
+							Margin="0 0 5 0" />
+						<TextBlock
+							Text="Commodity" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="20" />
+			<MenuItem
+				Name="menudisclaimer"
+				Click="disclaimer_Click">
+				<HeaderedItemsControl.Header>
+					<StackPanel
+						Orientation="Horizontal">
+						<TextBlock
+							Text="Disclaimer" />
+					</StackPanel>
+				</HeaderedItemsControl.Header>
+			</MenuItem>
+			<Separator
+				Width="20" />
+			<MenuItem
+				Header="_Help">
+				<MenuItem
+					Name="userManual"
+					Header="_User Manual"
+					Background="#4D2DB7"
+					Click="userManual_Click" />
+				<MenuItem
+					Header="About Us"
+					Background="#4D2DB7"
+					Click="aboutUs_Click" />
+			</MenuItem>
+			<MenuItem
+				Header=" _How to Use"
+				Background="#4D2DB7"
+				Foreground="#FFFFFFFF"
+				Margin="20 0 0 0"
+				Click="MenuItem_Click_1">
+				<FrameworkElement.ToolTip>
+					<ToolTip>
+						<StackPanel>
+							<TextBlock
+								FontWeight="Bold">Click</TextBlock>
+							<TextBlock
+								Foreground="#FFFAEBD7">Step by Step how to use.</TextBlock>
+						</StackPanel>
+					</ToolTip>
+				</FrameworkElement.ToolTip>
+			</MenuItem>
+		</Menu>
+		<Frame
+			Name="MainFrame"
+			NavigationUIVisibility="Hidden" />
+	</DockPanel>
+</Window>

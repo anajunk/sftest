@@ -1,0 +1,35 @@
+<Window
+	x:Class="New_SF_IT.Disclaimer" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT"
+	Icon="pack://application:,,,/images/logo4.png"
+	Title="Disclaimer"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	Height="400"
+	Width="530">
+	<Grid
+		Margin="10">
+		<StackPanel>
+			<TextBlock
+				Width="Auto"
+				TextWrapping="Wrap"
+				TextAlignment="Justify"
+				FontWeight="SemiBold"
+				Margin="0 10 0 10">This Software is an analytic and programmed product. Based on historic and current price and time data, it does the analysis of Volatility, Fibonacci, and other proven technical analysis methods. However, there is no foolproof technique to predict the future movement of the stock price or option price. Henceforth, any information provided in this software is for educative reference purposes only. Smart Finance or any of its employees or developers of this application are not responsible for any trading loss caused by the use of these techniques, software, or app. The fee we collect for our information, publication, seminar services, and software services is neither refundable nor adjustable with any other product. The goods once sold by us are not exchangeable with any other product. We are not responsible for losses caused by using our software product. Hence, traders must assume and calculate the risk in the call before initiating any position. Sometimes, the hedging loss as projected by the software may increase due to many internal factors.</TextBlock>
+			<TextBlock
+				Width="Auto"
+				TextWrapping="Wrap"
+				TextAlignment="Justify"
+				Foreground="#FFFF0000"
+				FontWeight="SemiBold"
+				Margin="0 10 0 20">Traders must assess the risk before initiating the position and exit once the projected loss is triggered. We are not responsible for any trading loss that may incur by the use of our service.</TextBlock>
+			<Button
+				Content="OK"
+				Width="70"
+				Height="30"
+				HorizontalAlignment="Center"
+				Background="#7882D6"
+				Foreground="#FFF"
+				Click="closeClick" />
+		</StackPanel>
+	</Grid>
+</Window>

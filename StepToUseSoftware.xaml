@@ -1,0 +1,36 @@
+<Window
+	x:Class="New_SF_IT.StepToUseSoftware" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Name="steps"
+	Icon="pack://application:,,,/images/logo4.png"
+	Title="Steps to follow."
+	ResizeMode="CanMinimize"
+	SizeToContent="WidthAndHeight"
+	FontSize="14"
+	Focusable="False"
+	WindowStyle="ThreeDBorderWindow" xmlns:new_sf_it="clr-namespace:New_SF_IT">
+	<DockPanel>
+		<Grid
+			DockPanel.Dock="Top">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<GroupBox
+				Name="stepsContainer"
+				HorizontalAlignment="Center">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<TextBlock
+						Margin="0,11,0,-11">Steps<LineBreak />1. Select Instrument, Script and Expiry.<LineBreak />2. Click Load.<LineBreak />3. Select TYPE Intraday/Positional.<LineBreak />4. If Positional, than fill days to hold.<LineBreak />5. Click CALCULATE.<LineBreak />6. Click summary for overall analysis.<LineBreak /></TextBlock>
+					<Grid />
+				</Grid>
+			</GroupBox>
+		</Grid>
+	</DockPanel>
+</Window>

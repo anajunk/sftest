@@ -1,0 +1,802 @@
+<UserControl
+	x:Class="New_SF_IT.Volatality_Designs.OneSD" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.Volatality_Designs">
+	<ScrollViewer>
+		<DockPanel>
+			<ScrollViewer>
+				<Grid
+					DockPanel.Dock="Top">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								TargetType="{x:Type TextBlock}"
+								x:Key="{x:Type TextBlock}">
+								<Setter
+									Property="TextBlock.Padding"
+									Value="0" />
+								<Setter
+									Property="FontFamily"
+									Value="Tunga" />
+								<Setter
+									Property="Foreground"
+									Value="#FF000000" />
+								<Setter
+									Property="FontWeight"
+									Value="SemiBold" />
+							</Style>
+							<Style
+								TargetType="{x:Type TableCell}"
+								x:Key="{x:Type TableCell}">
+								<Setter
+									Property="TableCell.Padding"
+									Value="0" />
+								<Setter
+									Property="TableCell.LineHeight"
+									Value="20" />
+								<Setter
+									Property="FontFamily"
+									Value="Tunga" />
+								<Setter
+									Property="FontSize"
+									Value="14" />
+								<Setter
+									Property="Background"
+									Value="#EBF0F6" />
+								<Setter
+									Property="Foreground"
+									Value="#FF000000" />
+								<Setter
+									Property="FontWeight"
+									Value="SemiBold" />
+								<Setter
+									Property="TableCell.TextAlignment"
+									Value="Center" />
+							</Style>
+							<Style
+								TargetType="{x:Type Paragraph}"
+								x:Key="{x:Type Paragraph}">
+								<Setter
+									Property="Block.Padding"
+									Value="0" />
+								<Setter
+									Property="Block.Margin"
+									Value="3 3 0 3" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid
+						DockPanel.Dock="Top"
+						Row="0">
+						<StackPanel
+							HorizontalAlignment="Center">
+							<TextBlock
+								FontWeight="Bold"
+								FontSize="11">1 SD Trend</TextBlock>
+						</StackPanel>
+					</Grid>
+					<Grid
+						DockPanel.Dock="Top"
+						Row="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-1</Label>
+						<Label
+							Grid.Column="1"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-2</Label>
+						<Label
+							Grid.Column="2"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-3</Label>
+					</Grid>
+					<GroupBox
+						Name="groupBoxvUpTrend"
+						Grid.Row="2"
+						Style="{StaticResource upTrend}"
+						Margin="0,0,0,0">
+						<HeaderedContentControl.Header>
+							<Label
+								Background="#FF008000"
+								Foreground="#FFFFFFFF"
+								FontWeight="Bold">GROWTH Trend</Label>
+						</HeaderedContentControl.Header>
+						<Grid
+							Name="gridfUpCycle">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<FlowDocumentScrollViewer
+								Background="#FFF5F5DC"
+								Grid.Column="0"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle1"
+									PagePadding="0">
+									<Table
+										CellSpacing="0"
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell
+													BorderBrush="#FF000000">
+													<Paragraph>Buy Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_BuyEntry">100</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Resistance">
+												<TableCell>
+													<Paragraph>Growth Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Growth_Clusture" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Column="1"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle2"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<Table.Columns>
+											<TableColumn />
+											<TableColumn />
+										</Table.Columns>
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>Buy Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_BuyEntry">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Resistance">
+												<TableCell>
+													<Paragraph>Growth Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Growth_Clusture" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Column="2"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle3"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>Buy Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_BuyEntry">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Resistance">
+												<TableCell>
+													<Paragraph>Growth Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Growth_Clusture">10</Paragraph>
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+						</Grid>
+					</GroupBox>
+					<GroupBox
+						Name="groupBoxvDownTrend"
+						Grid.Row="3"
+						Style="{StaticResource downTrend}"
+						Margin="0,0,0,0">
+						<HeaderedContentControl.Header>
+							<Label
+								Background="#FFFF0000"
+								Foreground="#FFFFFFFF"
+								FontWeight="Bold">DECAY Trend</Label>
+						</HeaderedContentControl.Header>
+						<Grid
+							Name="gridfDownCycle">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="0"
+								VerticalContentAlignment="Stretch"
+								HorizontalAlignment="Stretch">
+								<FlowDocument
+									Name="fDocDownCycle1"
+									ColumnWidth="999999"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>Sell Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_SellEntry">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Support">
+												<TableCell>
+													<Paragraph>Decay Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Decay_Clusture">10</Paragraph>
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="1">
+								<FlowDocument
+									Name="fDocDownCycle2"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>Sell Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_SellEntry">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Support">
+												<TableCell>
+													<Paragraph>Decay Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Decay_Clusture">10</Paragraph>
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="3">
+								<FlowDocument
+									Name="fDocDownCycle3"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>Sell Entry</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_SellEntry">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T1(0.382)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target1">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T2(0.500)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target2">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T3(0.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target3"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph
+														Foreground="#FFFF0000">T4(0.786)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target4"
+														Foreground="#FFFF0000">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T5(0.888)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target5">10</Paragraph>
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T6(1.236)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target6" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>T7(1.618)</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target7" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Maximum Support">
+												<TableCell>
+													<Paragraph>Decay Clusters</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Decay_Clusture">10</Paragraph>
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+						</Grid>
+					</GroupBox>
+					<GroupBox
+						Name="gbSummaryHeader"
+						Header="Specific Summary"
+						Grid.Row="4"
+						FontSize="14">
+						<Grid
+							Name="gridvSummary">
+							<DockPanel>
+								<Label
+									Name="volatilitySummary1"
+									DockPanel.Dock="Top" />
+								<Label>Target 2 And Target 3 are Death Zone.</Label>
+							</DockPanel>
+						</Grid>
+					</GroupBox>
+				</Grid>
+			</ScrollViewer>
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>

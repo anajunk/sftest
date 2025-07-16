@@ -1,0 +1,336 @@
+<UserControl
+	x:Class="New_SF_IT.EF_Designs.Gann_Price" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.EF_Designs">
+	<ScrollViewer
+		VerticalScrollBarVisibility="Auto">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="7.5*" />
+				<RowDefinition
+					Height="7.5*" />
+				<RowDefinition
+					Height="5*" />
+				<RowDefinition
+					Height="80*" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Grid.Row="0"
+				FontSize="14"
+				HorizontalAlignment="Center"
+				Margin="0 7 0 0"
+				VerticalAlignment="Center"
+				FontWeight="Bold">Gann Price Tool:</TextBlock>
+			<Grid
+				VerticalAlignment="Top"
+				Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="50*" />
+					<ColumnDefinition
+						Width="50*" />
+				</Grid.ColumnDefinitions>
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							TargetType="{x:Type Paragraph}"
+							x:Key="{x:Type Paragraph}">
+							<Setter
+								Property="FontSize"
+								Value="14" />
+							<Setter
+								Property="FontWeight"
+								Value="Normal" />
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<FlowDocumentScrollViewer
+					Grid.Column="0"
+					HorizontalScrollBarVisibility="Hidden"
+					VerticalScrollBarVisibility="Hidden">
+					<FlowDocument
+						Name="GAV_buyTargets">
+						<Table
+							BorderBrush="#FFFFFFFF"
+							BorderThickness="1">
+							<FrameworkContentElement.Resources>
+								<ResourceDictionary>
+									<Style
+										TargetType="{x:Type TableCell}"
+										x:Key="{x:Type TableCell}">
+										<Setter
+											Property="TableCell.Padding"
+											Value="0" />
+										<Setter
+											Property="TableCell.LineHeight"
+											Value="20" />
+										<Setter
+											Property="FontSize"
+											Value="15" />
+										<Setter
+											Property="FontFamily"
+											Value="Tunga" />
+										<Setter
+											Property="Background"
+											Value="#F7F9FC" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="TableCell.TextAlignment"
+											Value="Center" />
+										<Setter
+											Property="TableCell.BorderBrush"
+											Value="#BABABA" />
+										<Setter
+											Property="TableCell.BorderThickness"
+											Value="0.5" />
+									</Style>
+									<Style
+										TargetType="{x:Type Paragraph}"
+										x:Key="{x:Type Paragraph}">
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="Block.Padding"
+											Value="100 0 0 0" />
+										<Setter
+											Property="Block.TextAlignment"
+											Value="Left" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkContentElement.Resources>
+							<TableRowGroup>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_Up_Trend"
+											FontWeight="Bold"
+											Background="#C5EBAA"
+											Foreground="#FF000000">RESISTANCE</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Background="#C5EBAA" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C1_Name"
+											Background="#EBEDFF">Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget1"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget2"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget3"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 4</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget4"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 5</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget5"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 6</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="buyTarget6"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+							</TableRowGroup>
+						</Table>
+					</FlowDocument>
+				</FlowDocumentScrollViewer>
+				<FlowDocumentScrollViewer
+					Grid.Column="1"
+					HorizontalScrollBarVisibility="Hidden"
+					VerticalScrollBarVisibility="Hidden">
+					<FlowDocument
+						Name="GAV_sellTargets">
+						<Table>
+							<FrameworkContentElement.Resources>
+								<ResourceDictionary>
+									<Style
+										TargetType="{x:Type TableCell}"
+										x:Key="{x:Type TableCell}">
+										<Setter
+											Property="TableCell.Padding"
+											Value="0" />
+										<Setter
+											Property="TableCell.LineHeight"
+											Value="20" />
+										<Setter
+											Property="FontSize"
+											Value="15" />
+										<Setter
+											Property="FontFamily"
+											Value="Tunga" />
+										<Setter
+											Property="Background"
+											Value="#FFFFFFFF" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="TableCell.TextAlignment"
+											Value="Center" />
+										<Setter
+											Property="TableCell.BorderBrush"
+											Value="#BABABA" />
+										<Setter
+											Property="TableCell.BorderThickness"
+											Value="0.5" />
+									</Style>
+									<Style
+										TargetType="{x:Type Paragraph}"
+										x:Key="{x:Type Paragraph}">
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="Block.Padding"
+											Value="100 0 0 0" />
+										<Setter
+											Property="Block.TextAlignment"
+											Value="Left" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkContentElement.Resources>
+							<TableRowGroup>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_Down_Trend"
+											FontWeight="Bold"
+											Background="#FCAEAE"
+											Foreground="#FF000000">SUPPORT</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Background="#FCAEAE" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget1"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget2"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget3"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 4</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget4"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 5</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget5"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#EBEDFF">Target 6</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="sellTarget6"
+											Background="#EBEDFF" />
+									</TableCell>
+								</TableRow>
+							</TableRowGroup>
+						</Table>
+					</FlowDocument>
+				</FlowDocumentScrollViewer>
+			</Grid>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

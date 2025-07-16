@@ -1,0 +1,1440 @@
+<Window
+	x:Class="New_SF_IT.OotionScanner.optionsScannerView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.OotionScanner" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
+	Icon="pack://application:,,,/images/logo4.png"
+	Title="options Scanner"
+	WindowState="Maximized">
+	<FrameworkElement.DataContext>
+		<local:optionsScannerMainClass />
+	</FrameworkElement.DataContext>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="crap">
+				<StackPanel
+					Width="100"
+					Height="18" />
+			</DataTemplate>
+			<Style
+				TargetType="{x:Type TabItem}"
+				x:Key="TabItemStyleKey">
+				<Setter
+					Property="Header"
+					Value="{Binding Path=DataContext.ViewTile}" />
+				<Setter
+					Property="HeaderTemplate"
+					Value="{Binding Source={StaticResource crap}}" />
+			</Style>
+			<Style
+				TargetType="{x:Type TreeViewItem}"
+				x:Key="TreeItemStyleKey">
+				<Setter
+					Property="Height"
+					Value="Auto" />
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Left" />
+				<Setter
+					Property="VerticalAlignment"
+					Value="Top" />
+				<Setter
+					Property="BorderThickness"
+					Value="0" />
+			</Style>
+			<BooleanToVisibilityConverter
+				x:Key="bool2VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<DockPanel
+			HorizontalAlignment="Stretch">
+			<WrapPanel
+				HorizontalAlignment="Center"
+				Orientation="Horizontal"
+				Width="Auto"
+				DockPanel.Dock="Top">
+				<Label
+					FontSize="13"
+					FontWeight="Bold"
+					ToolTip="Select Instrument type first"
+					VerticalAlignment="Center">Instrument:</Label>
+				<ComboBox
+					IsTextSearchEnabled="True"
+					Width="130"
+					Height="25"
+					SelectedIndex="1"
+					BorderThickness="1"
+					ItemsSource="{Binding INSTRUMENTS, Mode=OneWay}"
+					SelectedItem="{Binding selectedINSTRUMENT, Mode=OneWayToSource}" />
+				<Label
+					FontSize="13"
+					FontWeight="Bold"
+					ToolTip="Enter script code in right textbox"
+					VerticalAlignment="Center"
+					Margin="20,0,0,0"
+					IsTabStop="False">Type Script Code-&gt;</Label>
+				<controls:AutoCompleteBox
+					Name="autoCText"
+					Width="120"
+					FontSize="14"
+					Height="25"
+					BorderThickness="1"
+					IsTextCompletionEnabled="True"
+					IsTabStop="True"
+					ItemsSource="{Binding SYMBOLS, Mode=OneWay}"
+					Text="{Binding SYMBOL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+					SelectedItem="{Binding selectedSYMBOL, Mode=TwoWay}" />
+				<Label
+					FontSize="13"
+					FontWeight="Bold"
+					VerticalAlignment="Center"
+					Margin="20,0,0,0">Expiry:</Label>
+				<ComboBox
+					Name="expiryDateCb"
+					Text="Loading"
+					Width="130"
+					Height="25"
+					BorderThickness="1"
+					ItemsSource="{Binding EXPIRYDATE, Mode=OneWay}"
+					SelectedItem="{Binding selectedEDate, Mode=OneWayToSource}"
+					SelectedIndex="{Binding SELECTED_EXPIRY_INDEX}" />
+				<Border
+					CornerRadius="5"
+					BorderThickness="2"
+					BorderBrush="#FF000000"
+					Margin="20,0,0,0">
+					<Button
+						Name="loadButton"
+						FontSize="14"
+						Style="{StaticResource btn}"
+						Content="Load"
+						Command="{Binding LoadOptionsData}" />
+				</Border>
+			</WrapPanel>
+			<Separator
+				DockPanel.Dock="Top" />
+			<WrapPanel
+				Name="conditionBox"
+				HorizontalAlignment="Center"
+				Orientation="Horizontal"
+				Width="Auto"
+				DockPanel.Dock="Top"
+				IsEnabled="False">
+				<DockPanel
+					LastChildFill="True">
+					<GroupBox
+						Background="#FFB0C4DE"
+						FontSize="14">
+						<HeaderedContentControl.Header>
+							<GroupBox
+								Background="#FFFFFFFF">
+								<TextBlock
+									FontWeight="DemiBold"
+									FontSize="14">OPTION TYPE:</TextBlock>
+							</GroupBox>
+						</HeaderedContentControl.Header>
+						<StackPanel>
+							<CheckBox
+								Name="all"
+								Content="ALL"
+								Margin="13"
+								Checked="CB_checked" />
+							<CheckBox
+								Name="call"
+								Content="CALL"
+								Margin="13"
+								Checked="CB_checked" />
+							<CheckBox
+								Name="put"
+								Content="PUT"
+								Margin="13"
+								Checked="CB_checked" />
+						</StackPanel>
+					</GroupBox>
+					<GroupBox
+						Background="#AEB6D6"
+						FontSize="14">
+						<HeaderedContentControl.Header>
+							<GroupBox
+								Background="#FFFFFFFF">
+								<TextBlock
+									FontWeight="DemiBold"
+									FontSize="14">CONDITION:</TextBlock>
+							</GroupBox>
+						</HeaderedContentControl.Header>
+						<StackPanel>
+							<CheckBox
+								Name="greaterthan"
+								Style="{StaticResource CBdisabledStyle}"
+								Content="&gt;= [Greaterthan]"
+								Margin="13"
+								Checked="CB_checked" />
+							<CheckBox
+								Name="lessthan"
+								Style="{StaticResource CBdisabledStyle}"
+								Content="&lt;= [Lesserthan]"
+								Margin="13"
+								Checked="CB_checked" />
+							<CheckBox
+								Name="between"
+								Style="{StaticResource CBdisabledStyle}"
+								Content="&lt;-&gt; [Between]"
+								Margin="13"
+								Checked="CB_checked" />
+						</StackPanel>
+					</GroupBox>
+					<GroupBox
+						Background="#A6A9D6"
+						FontSize="14">
+						<HeaderedContentControl.Header>
+							<GroupBox
+								Background="#FFFFFFFF">
+								<TextBlock
+									FontWeight="DemiBold"
+									FontSize="14">PARAMETER:</TextBlock>
+							</GroupBox>
+						</HeaderedContentControl.Header>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<StackPanel
+								Grid.Row="0"
+								Grid.Column="0">
+								<CheckBox
+									Name="cBuyinUp"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Call to Buy in UpTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="cSellinDown"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Call to Sell in DownTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="pBuyinDown"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Put to Buy in DownTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="pSellinUp"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Put to Sell in UpTrend"
+									Margin="13"
+									Checked="CB_checked" />
+							</StackPanel>
+							<StackPanel
+								Grid.Row="0"
+								Grid.Column="1">
+								<CheckBox
+									Name="ltp"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Last Traded Price(LTP)"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="BW_BE_Tgts"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Strikes between Buy Entry Targets"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="BW_SE_Tgts"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Strikes between Sell Entry Targets"
+									Margin="13"
+									Checked="CB_checked" />
+							</StackPanel>
+							<StackPanel
+								Grid.Row="0"
+								Grid.Column="2">
+								<CheckBox
+									Name="BestWC_Buy_Up"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Best Weekly Call to Buy in UpTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="BestWC_Sell_Down"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Best Weekly Call to Sell in DownTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="BestWP_Buy_Down"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Best Weekly Put to Buy in DownTrend"
+									Margin="13"
+									Checked="CB_checked" />
+								<CheckBox
+									Name="BestWP_Sell_Up"
+									Style="{StaticResource CBdisabledStyle}"
+									Content="Best Weekly Put to Sell in UpTrend"
+									Margin="13"
+									Checked="CB_checked" />
+							</StackPanel>
+						</Grid>
+					</GroupBox>
+					<StackPanel>
+						<Border
+							CornerRadius="5"
+							BorderThickness="2"
+							BorderBrush="#FF000000"
+							Height="45"
+							Margin="2.5,10,2.5,10">
+							<Button
+								Name="analyse"
+								Style="{StaticResource btn}"
+								Content="Analyse"
+								Height="45"
+								Width="160"
+								FontSize="15"
+								Command="{Binding Analyse}" />
+						</Border>
+						<Border
+							CornerRadius="5"
+							BorderThickness="2"
+							BorderBrush="#FF000000"
+							Height="45"
+							Margin="2.5,10,2.5,10">
+							<Button
+								Name="IvRank"
+								Style="{StaticResource btn}"
+								Content="IV Rank &amp; Percentile"
+								Height="45"
+								Width="160"
+								FontSize="15"
+								Click="IvRank_CLicked" />
+						</Border>
+						<Border
+							CornerRadius="5"
+							BorderThickness="2"
+							BorderBrush="#FF000000"
+							Height="45"
+							Margin="2.5,10,2.5,10"
+							Visibility="Visible">
+							<Button
+								Name="maxPain"
+								Style="{StaticResource btn}"
+								Content="Find Max Pain"
+								Height="50"
+								Width="160"
+								FontSize="15"
+								Click="maxPain_CLicked" />
+						</Border>
+						<Border
+							CornerRadius="5"
+							BorderThickness="2"
+							BorderBrush="#FF000000"
+							Height="45"
+							Margin="2.5,10,2.5,10"
+							Visibility="Visible">
+							<Button
+								Name="maxPain_Weekly"
+								Style="{StaticResource btn}"
+								Content="NIFTY MaxPain Weekly"
+								Height="45"
+								Width="160"
+								FontSize="14"
+								Click="maxPain_Weekly_CLicked" />
+						</Border>
+					</StackPanel>
+				</DockPanel>
+			</WrapPanel>
+			<Separator
+				DockPanel.Dock="Top" />
+			<DockPanel>
+				<ScrollViewer
+					Name="scrollViewer"
+					HorizontalScrollBarVisibility="Disabled">
+					<WrapPanel
+						Name="trends"
+						Orientation="Vertical"
+						Visibility="Hidden">
+						<WrapPanel
+							Orientation="Horizontal"
+							HorizontalAlignment="Center">
+							<TextBlock
+								Name="conditionChosenText"
+								FontSize="18"
+								TextDecorations="Underline"
+								FontWeight="SemiBold"
+								VerticalAlignment="Center">Condition Chosen:</TextBlock>
+							<Label
+								Name="conditionChosen"
+								FontSize="18"
+								FontWeight="UltraBlack"
+								VerticalAlignment="Center" />
+							<TextBlock
+								Name="refPriceText"
+								FontSize="15"
+								FontWeight="SemiBold"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Center"
+								Text="                                       Underlying Price is Spot Level" />
+						</WrapPanel>
+						<Label
+							Name="callTableLabel"
+							FontSize="16"
+							FontWeight="Bold"
+							HorizontalAlignment="Left">CALL UpTrend &amp; DownTrend:-</Label>
+						<Grid
+							Name="callTablePanel">
+							<DataGrid
+								Name="dataGrid1"
+								IsReadOnly="True"
+								CanUserSortColumns="False"
+								CanUserAddRows="False"
+								CanUserDeleteRows="False"
+								CanUserReorderColumns="False"
+								CanUserResizeColumns="False"
+								CanUserResizeRows="False"
+								AutoGenerateColumns="False"
+								PreviewMouseWheel="DataGrid_PreviewMouseWheel">
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Header="Strike Price">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="FontWeight"
+													Value="Bold" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Setter
+													Property="Padding"
+													Value="10" />
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Premium">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="IV">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF800080" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy Entry">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T1">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T2">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T3">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T4">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T5">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T6">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T7">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell Entry">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T1">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T2">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T3">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T4">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T5">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T6">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T7">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+								</DataGrid.Columns>
+								<DataGrid.RowStyle>
+									<Style
+										TargetType="{x:Type DataGridRow}">
+										<Setter
+											Property="FontSize"
+											Value="15.2" />
+										<Setter
+											Property="FontFamily"
+											Value="Arial" />
+										<Style.Triggers>
+											<Trigger
+												Property="DataGridRow.IsSelected"
+												Value="True">
+												<Setter
+													Property="Foreground"
+													Value="#FFFFFFFF" />
+											</Trigger>
+										</Style.Triggers>
+									</Style>
+								</DataGrid.RowStyle>
+								<DataGrid.ColumnHeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="FontWeight"
+											Value="Bold" />
+										<Setter
+											Property="HorizontalAlignment"
+											Value="Center" />
+										<Setter
+											Property="FontSize"
+											Value="14" />
+									</Style>
+								</DataGrid.ColumnHeaderStyle>
+							</DataGrid>
+						</Grid>
+						<Label
+							Name="putTableLabel"
+							FontSize="16"
+							FontWeight="Bold"
+							HorizontalAlignment="Left">PUT DownTrend &amp; UpTrend:-</Label>
+						<Grid
+							Name="putTablePanel">
+							<DataGrid
+								Name="dataGrid2"
+								IsReadOnly="True"
+								CanUserSortColumns="False"
+								CanUserAddRows="False"
+								CanUserDeleteRows="False"
+								CanUserReorderColumns="False"
+								CanUserResizeColumns="False"
+								CanUserResizeRows="False"
+								AutoGenerateColumns="False"
+								PreviewMouseWheel="DataGrid_PreviewMouseWheel">
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Header="Strike Price">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="FontWeight"
+													Value="Bold" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Premium">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="IV">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF800080" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell Entry">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T1">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T2">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T3">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T4">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T5">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T6">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Sell T7">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FFFF0000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy Entry">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T1">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T2">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T3">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T4">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T5">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T6">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+									<DataGridTextColumn
+										Header="Buy T7">
+										<DataGridColumn.CellStyle>
+											<Style
+												TargetType="{x:Type DataGridCell}">
+												<Setter
+													Property="Foreground"
+													Value="#FF008000" />
+												<Setter
+													Property="Background"
+													Value="#F2F1FC" />
+												<Setter
+													Property="FontSize"
+													Value="15" />
+												<Style.Triggers>
+													<Trigger
+														Property="DataGridCell.IsSelected"
+														Value="True">
+														<Setter
+															Property="Foreground"
+															Value="#FFFFFFFF" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</DataGridColumn.CellStyle>
+									</DataGridTextColumn>
+								</DataGrid.Columns>
+								<DataGrid.RowStyle>
+									<Style
+										TargetType="{x:Type DataGridRow}">
+										<Setter
+											Property="FontSize"
+											Value="15.2" />
+										<Setter
+											Property="FontFamily"
+											Value="Arial" />
+									</Style>
+								</DataGrid.RowStyle>
+								<DataGrid.ColumnHeaderStyle>
+									<Style
+										TargetType="{x:Type DataGridColumnHeader}">
+										<Setter
+											Property="FontWeight"
+											Value="Bold" />
+										<Setter
+											Property="HorizontalAlignment"
+											Value="Center" />
+										<Setter
+											Property="FontSize"
+											Value="14" />
+									</Style>
+								</DataGrid.ColumnHeaderStyle>
+							</DataGrid>
+						</Grid>
+					</WrapPanel>
+				</ScrollViewer>
+			</DockPanel>
+		</DockPanel>
+	</DockPanel>
+</Window>

@@ -1,0 +1,862 @@
+<UserControl
+	x:Class="New_SF_IT.OptionMonth.optionIntraday" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:New_SF_IT.OptionMonth"
+	Background="#FFFFFFFF">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				TargetType="{x:Type Label}"
+				x:Key="{x:Type Label}">
+				<Setter
+					Property="FontSize"
+					Value="14" />
+				<Setter
+					Property="FontWeight"
+					Value="SemiBold" />
+			</Style>
+			<Style
+				TargetType="{x:Type TextBox}"
+				x:Key="{x:Type TextBox}">
+				<Setter
+					Property="FontSize"
+					Value="13" />
+				<Setter
+					Property="FontWeight"
+					Value="SemiBold" />
+				<Setter
+					Property="VerticalAlignment"
+					Value="Center" />
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Center" />
+				<Setter
+					Property="Width"
+					Value="100" />
+				<Setter
+					Property="Height"
+					Value="25" />
+				<Setter
+					Property="Padding"
+					Value="5 2 0 0" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel
+		Margin="10 0 0 0">
+		<ScrollViewer
+			VerticalScrollBarVisibility="Visible"
+			HorizontalScrollBarVisibility="Visible">
+			<Grid
+				DockPanel.Dock="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="12" />
+					<RowDefinition
+						Height="12" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<GroupBox
+					Name="gbTop"
+					Grid.Row="2"
+					Margin="0 -20 0 0"
+					Grid.Column="0"
+					Grid.ColumnSpan="3"
+					Width="Auto"
+					BorderThickness="0">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Label
+							Grid.Row="0"
+							Grid.Column="0" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="0">Underlying</Label>
+						<Label
+							Grid.Row="2"
+							Grid.Column="0">Premium</Label>
+						<Label
+							Grid.Row="3"
+							Grid.Column="0">Delta</Label>
+						<Label
+							Grid.Row="4"
+							Grid.Column="0">Gamma</Label>
+						<Label
+							Grid.Row="5"
+							Grid.Column="0">Omega</Label>
+						<Label
+							Grid.Row="6"
+							Grid.Column="0">Vega</Label>
+						<Label
+							Grid.Row="7"
+							Grid.Column="0">Theta</Label>
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="1"
+							Text="Entry"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							BorderBrush="#FFFFFFFF" />
+						<TextBox
+							Name="txtbxBuy_underlyStrike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyPremium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyDelta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyGamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyOmega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyVega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxBuy_underlyTheta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Grid.Column="2"
+							Text="Target1"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_Target1Strike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Premium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxBuy_Target1Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="3"
+							Text="Target2"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_Target2Strike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Premium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxBuy_Target2Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="4"
+							Text="Target3"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_Target3Strike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Premium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxBuy_Target3Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="5"
+							Text="Target4"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_Target4Strike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Premium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxBuy_Target4Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="6"
+							Text="Final Target"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_FinalTargetStrike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_FinalTargetPremium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_Target5Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_Target5Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_Target5Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_Target5Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxBuy_Target5Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Grid.Row="0"
+							Grid.Column="7"
+							Text="Expanded Target"
+							VerticalAlignment="Center"
+							BorderBrush="#FFFFFFFF"
+							HorizontalAlignment="Center" />
+						<TextBox
+							Name="txtbxBuy_ETargetStrike"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_ETargetStrikePremium"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_Target6Delta"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_Target6Gamma"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_Target6Omega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_Target6Vega"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxBuy_Target6Theta"
+							Grid.Row="7"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<Label
+							Grid.Row="0"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Target :" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Premium :" />
+						<Label
+							Grid.Row="2"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Δ :" />
+						<Label
+							Grid.Row="3"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Γ :" />
+						<Label
+							Grid.Row="4"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Ω :" />
+						<Label
+							Grid.Row="5"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="V :" />
+						<Label
+							Grid.Row="6"
+							Grid.Column="9"
+							HorizontalContentAlignment="Right"
+							Content="Θ :" />
+						<TextBox
+							Name="txtbxBuy_refTargetStrike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetStrikePremium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetDelta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetGamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetOmega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetVega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxBuy_refTargetTheta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+					</Grid>
+				</GroupBox>
+				<GroupBox
+					Name="gbDown"
+					Grid.Row="3"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					Width="Auto"
+					BorderThickness="0">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+							<ColumnDefinition
+								Width="Auto"
+								MinWidth="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Label
+							Grid.Row="0"
+							Grid.Column="0">Underlying</Label>
+						<Label
+							Grid.Row="1"
+							Grid.Column="0">Premium</Label>
+						<Label
+							Grid.Row="2"
+							Grid.Column="0">Delta</Label>
+						<Label
+							Grid.Row="3"
+							Grid.Column="0">Gamma</Label>
+						<Label
+							Grid.Row="4"
+							Grid.Column="0">Omega</Label>
+						<Label
+							Grid.Row="5"
+							Grid.Column="0">Vega</Label>
+						<Label
+							Grid.Row="6"
+							Grid.Column="0">Theta</Label>
+						<TextBox
+							Name="txtbxSell_underlyStrike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyPremium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyDelta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyGamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyOmega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyVega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_underlyTheta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="1" />
+						<TextBox
+							Name="txtbxSell_Target1Strike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Premium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target1Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="2" />
+						<TextBox
+							Name="txtbxSell_Target2Strike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Premium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target2Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="3" />
+						<TextBox
+							Name="txtbxSell_Target3Strike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Premium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target3Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="4" />
+						<TextBox
+							Name="txtbxSell_Target4Strike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Premium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_Target4Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="5" />
+						<TextBox
+							Name="txtbxSell_FinalTargetStrike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_FinalTargetPremium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_Target5Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_Target5Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_Target5Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_Target5Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_Target5Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="6" />
+						<TextBox
+							Name="txtbxSell_ETargetStrike"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_ETargetStrikePremium"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_Target6Delta"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_Target6Gamma"
+							Grid.Row="3"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_Target6Omega"
+							Grid.Row="4"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_Target6Vega"
+							Grid.Row="5"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<TextBox
+							Name="txtbxSell_Target6Theta"
+							Grid.Row="6"
+							Background="#F0EFFF"
+							Grid.Column="7" />
+						<Label
+							Name="txtbxVolatilityText"
+							Grid.Row="0"
+							Grid.Column="9"
+							HorizontalAlignment="Right">Volatility :</Label>
+						<Label
+							Grid.Row="1"
+							Grid.Column="9"
+							HorizontalAlignment="Right">IV :</Label>
+						<Label
+							Name="txtbxDailyVolatilityText"
+							Grid.Row="2"
+							Grid.Column="9"
+							HorizontalAlignment="Right">Daily Volatility :</Label>
+						<TextBox
+							Name="txtbxVolatility"
+							Grid.Row="0"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxIV"
+							Grid.Row="1"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+						<TextBox
+							Name="txtbxDailyVolatility"
+							Grid.Row="2"
+							Background="#F0EFFF"
+							Grid.Column="10" />
+					</Grid>
+				</GroupBox>
+			</Grid>
+		</ScrollViewer>
+	</DockPanel>
+</UserControl>

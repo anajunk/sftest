@@ -1,0 +1,522 @@
+<UserControl
+	x:Class="New_SF_IT.Average_and_Pivot_Principle.Camarila" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.Average_and_Pivot_Principle">
+	<ScrollViewer>
+		<DockPanel>
+			<ScrollViewer>
+				<Grid
+					DockPanel.Dock="Top">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								TargetType="{x:Type TextBlock}"
+								x:Key="{x:Type TextBlock}">
+								<Setter
+									Property="TextBlock.Padding"
+									Value="0" />
+								<Setter
+									Property="FontFamily"
+									Value="Tunga" />
+								<Setter
+									Property="Foreground"
+									Value="#FF000000" />
+								<Setter
+									Property="FontWeight"
+									Value="SemiBold" />
+							</Style>
+							<Style
+								TargetType="{x:Type TableCell}"
+								x:Key="{x:Type TableCell}">
+								<Setter
+									Property="TableCell.Padding"
+									Value="0" />
+								<Setter
+									Property="TableCell.LineHeight"
+									Value="20" />
+								<Setter
+									Property="FontFamily"
+									Value="Tunga" />
+								<Setter
+									Property="FontSize"
+									Value="14" />
+								<Setter
+									Property="Background"
+									Value="#EBF0F6" />
+								<Setter
+									Property="Foreground"
+									Value="#FF000000" />
+								<Setter
+									Property="FontWeight"
+									Value="SemiBold" />
+								<Setter
+									Property="TableCell.TextAlignment"
+									Value="Center" />
+							</Style>
+							<Style
+								TargetType="{x:Type Paragraph}"
+								x:Key="{x:Type Paragraph}">
+								<Setter
+									Property="Block.Padding"
+									Value="0" />
+								<Setter
+									Property="Block.Margin"
+									Value="3 3 0 3" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid
+						DockPanel.Dock="Top"
+						Row="0">
+						<StackPanel
+							HorizontalAlignment="Center">
+							<TextBlock
+								FontWeight="Bold"
+								FontSize="11">Camarila Analysis</TextBlock>
+						</StackPanel>
+					</Grid>
+					<Grid
+						DockPanel.Dock="Top"
+						Row="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-1</Label>
+						<Label
+							Grid.Column="1"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-2</Label>
+						<Label
+							Grid.Column="2"
+							Style="{StaticResource Cycle}"
+							FontSize="11">Cycle-3</Label>
+					</Grid>
+					<GroupBox
+						Name="groupBoxvUpTrend"
+						Grid.Row="2"
+						Style="{StaticResource upTrend}"
+						Margin="0,0,0,0">
+						<HeaderedContentControl.Header>
+							<Label
+								Background="#C5EBAA"
+								Foreground="#FF000000"
+								FontWeight="Bold">HIGH Levels</Label>
+						</HeaderedContentControl.Header>
+						<Grid
+							Name="gridUpCycle">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<FlowDocumentScrollViewer
+								Background="#FFF5F5DC"
+								Grid.Column="0"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle1"
+									PagePadding="0">
+									<Table
+										CellSpacing="0"
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_BuyEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_1_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Column="1"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle2"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<Table.Columns>
+											<TableColumn />
+											<TableColumn />
+										</Table.Columns>
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_BuyEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>H3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>H4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_2_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Column="2"
+								Padding="0"
+								Margin="0">
+								<FlowDocument
+									Name="fDocUpCycle3"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_BuyEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>H2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>H3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>H4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="UpCycle_3_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+						</Grid>
+					</GroupBox>
+					<GroupBox
+						Name="groupBoxvDownTrend"
+						Grid.Row="3"
+						Style="{StaticResource downTrend}"
+						Margin="0,0,0,0">
+						<HeaderedContentControl.Header>
+							<Label
+								Background="#FCAEAE"
+								Foreground="#FF000000"
+								FontWeight="Bold">LOW Levels</Label>
+						</HeaderedContentControl.Header>
+						<Grid
+							Name="gridDownCycle">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="0"
+								VerticalContentAlignment="Stretch"
+								HorizontalAlignment="Stretch">
+								<FlowDocument
+									Name="fDocDownCycle1"
+									ColumnWidth="999999"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_SellEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_1_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="1">
+								<FlowDocument
+									Name="fDocDownCycle2"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_SellEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_2_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+							<FlowDocumentScrollViewer
+								Grid.Row="1"
+								Grid.Column="3">
+								<FlowDocument
+									Name="fDocDownCycle3"
+									PagePadding="0">
+									<Table
+										BorderBrush="#FF808080"
+										Padding="0"
+										Margin="0"
+										CellSpacing="0">
+										<TableRowGroup>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L1</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_SellEntry" />
+												</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>
+													<Paragraph>L2</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target1" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L3</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target2" />
+												</TableCell>
+											</TableRow>
+											<TableRow
+												ToolTip="Death Zone">
+												<TableCell>
+													<Paragraph>L4</Paragraph>
+												</TableCell>
+												<TableCell>
+													<Paragraph
+														Name="DownCycle_3_Target3" />
+												</TableCell>
+											</TableRow>
+										</TableRowGroup>
+									</Table>
+								</FlowDocument>
+							</FlowDocumentScrollViewer>
+						</Grid>
+					</GroupBox>
+					<GroupBox
+						Name="gbSummaryHeader"
+						Header="Specific Summary"
+						Grid.Row="4"
+						FontSize="14">
+						<Grid
+							Name="gridcSummary">
+							<DockPanel>
+								<Rectangle
+									Name="r"
+									Height="20"
+									Width="20"
+									Fill="#FF8A2BE2" />
+								<Label
+									Name="CamirilaSummary1"
+									DockPanel.Dock="Top">Better approach will be apply volatility or Gann Mid-Point method, to identify the trend then use camarila method for better success.</Label>
+							</DockPanel>
+						</Grid>
+						<FrameworkElement.Triggers>
+							<EventTrigger
+								RoutedEvent="FrameworkElement.Loaded">
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="r"
+											Storyboard.TargetProperty="Opacity"
+											From="1.0"
+											To="0.0"
+											Duration="0:0:1"
+											AutoReverse="True"
+											RepeatBehavior="Forever" />
+									</Storyboard>
+								</BeginStoryboard>
+							</EventTrigger>
+						</FrameworkElement.Triggers>
+					</GroupBox>
+				</Grid>
+			</ScrollViewer>
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>

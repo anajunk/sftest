@@ -1,0 +1,406 @@
+<UserControl
+	x:Class="New_SF_IT.Volatality_Designs.volatilityStockScanner" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.Volatality_Designs">
+	<Grid
+		Margin="0,20,0,0">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="22.5*" />
+			<RowDefinition
+				Height="5*" />
+			<RowDefinition
+				Height="5*" />
+			<RowDefinition
+				Height="67.5*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="40*" />
+			<ColumnDefinition
+				Width="30*" />
+			<ColumnDefinition
+				Width="30*" />
+		</Grid.ColumnDefinitions>
+		<StackPanel
+			VerticalAlignment="Center"
+			Grid.Row="0"
+			Margin="-260 0 0 0"
+			HorizontalAlignment="Center"
+			Height="62">
+			<ComboBox
+				Name="index"
+				Style="{StaticResource SimpleComboBoxStyle}"
+				Margin="5"
+				Height="25"
+				Width="120"
+				FontWeight="Bold"
+				ToolTip="Select your Instrument"
+				HorizontalAlignment="Stretch"
+				IsTabStop="True"
+				SelectionChanged="index_SelectionChanged">
+				<ComboBoxItem
+					Content="NIFTY" />
+				<ComboBoxItem
+					Content="BANKNIFTY" />
+				<ComboBoxItem
+					Content="FINNIFTY" />
+			</ComboBox>
+			<Button
+				Name="scanButton"
+				Style="{StaticResource CustomButtonStyle2}"
+				Width="120"
+				Height="25"
+				FontWeight="Bold"
+				Content="Scan the Stocks"
+				Click="scanData" />
+		</StackPanel>
+		<StackPanel
+			VerticalAlignment="Top"
+			Margin="160 0 0 0"
+			HorizontalAlignment="Center">
+			<Label
+				Name="niftyVola"
+				Foreground="#FF800080"
+				FontSize="11"
+				Margin="0"
+				FontWeight="SemiBold" />
+			<Label
+				Name="bankniftyVola"
+				Foreground="#FF800080"
+				FontSize="11"
+				Margin="0"
+				FontWeight="SemiBold" />
+			<Label
+				Name="finniftyVola"
+				Foreground="#FF800080"
+				FontSize="11"
+				Margin="0"
+				FontWeight="SemiBold" />
+		</StackPanel>
+		<Border
+			Name="note"
+			BorderBrush="#FF000000"
+			Grid.Row="0"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BorderThickness="0.25"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center">
+			<ScrollViewer
+				VerticalScrollBarVisibility="Auto">
+				<StackPanel
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								TargetType="{x:Type Label}"
+								x:Key="{x:Type Label}">
+								<Setter
+									Property="FontSize"
+									Value="13" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<TextBlock
+						TextDecorations="Underline"
+						FontSize="13"
+						FontWeight="SemiBold">Note:</TextBlock>
+					<Label>* Stocks having more than 60 correlation with rising volatility are good for Intraday Buy Trades</Label>
+					<Label>* Stocks having more than 60 correlation with falling volatility are good for Short Term Investments</Label>
+					<Label>* Stocks having less than 60 correlation will give less return as compared to NIFTY &amp; will give less success in Intraday Trade</Label>
+					<Label>* Stocks having more than +1.5 Z-Score with rising volatility are good for Intraday Buy Trades</Label>
+					<Label>* Stocks having more than +1.5 Z-Score with falling volatility are good for Short Term Investments</Label>
+				</StackPanel>
+			</ScrollViewer>
+		</Border>
+		<TextBlock
+			Name="LabelVolaRise"
+			Grid.Row="1"
+			Grid.Column="0"
+			TextDecorations="Underline"
+			TextAlignment="Center"
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Foreground="#27005D"
+			Text="Rise in Volatility:" />
+		<TextBlock
+			Name="LabelVolaFall"
+			Grid.Row="1"
+			Grid.Column="1"
+			Margin="-60,0,0,0"
+			TextDecorations="Underline"
+			TextAlignment="Center"
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Foreground="#27005D"
+			Text="Fall in Volatility:" />
+		<TextBlock
+			Name="LabelVolaNoChange"
+			Grid.Row="1"
+			Grid.Column="2"
+			Margin="-30,0,0,0"
+			TextDecorations="Underline"
+			TextAlignment="Center"
+			FontWeight="Bold"
+			VerticalAlignment="Bottom"
+			Foreground="#27005D"
+			Text="No Change in Volatility:" />
+		<Grid
+			Row="2"
+			ColumnSpan="3"
+			Margin="70,-5,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="105" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="30" />
+				<ColumnDefinition
+					Width="105" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="30" />
+				<ColumnDefinition
+					Width="105" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+				<ColumnDefinition
+					Width="75" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Name="label1"
+				FontWeight="SemiBold"
+				Width="105"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Symbol"
+				Grid.Column="0" />
+			<Label
+				Name="label2"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Volatility"
+				Grid.Column="1" />
+			<Label
+				Name="label3"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Correlation"
+				Grid.Column="2" />
+			<Label
+				Name="label4"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Z-Score"
+				Grid.Column="3" />
+			<Label
+				Name="label5"
+				FontWeight="SemiBold"
+				Width="105"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Symbol"
+				Grid.Column="5" />
+			<Label
+				Name="label6"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Volatility"
+				Grid.Column="6" />
+			<Label
+				Name="label7"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Correlation"
+				Grid.Column="7" />
+			<Label
+				Name="label8"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Z-Score"
+				Grid.Column="8" />
+			<Label
+				Name="label9"
+				FontWeight="SemiBold"
+				Width="105"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Symbol"
+				Grid.Column="10" />
+			<Label
+				Name="label10"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Volatility"
+				Grid.Column="11" />
+			<Label
+				Name="label11"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Correlation"
+				Grid.Column="12" />
+			<Label
+				Name="label12"
+				FontWeight="SemiBold"
+				Width="75"
+				FontSize="13"
+				VerticalAlignment="Bottom"
+				Content="Z-Score"
+				Grid.Column="13" />
+		</Grid>
+		<ScrollViewer
+			Name="scrollViewer"
+			Margin="70,5,0,0"
+			Grid.Row="3"
+			Grid.ColumnSpan="3"
+			ToolTip="Double click on the SYMBOL to know the Z-Score as per the Current Price">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="105" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="30" />
+					<ColumnDefinition
+						Width="105" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="30" />
+					<ColumnDefinition
+						Width="105" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+					<ColumnDefinition
+						Width="75" />
+				</Grid.ColumnDefinitions>
+				<TextBox
+					Name="textBoxVolaRise_Symbols"
+					Background="#ded8e6"
+					Width="105"
+					Grid.Column="0"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted"
+					MouseDoubleClick="textBoxVolaRise_Symbols_MouseDoubleClick" />
+				<TextBox
+					Name="textBoxVolaRise_Vola"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="1"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaRise_Correlation"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="2"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaRise_zScore"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="3"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaFall_Symbols"
+					Background="#ffe6e6"
+					Width="105"
+					Grid.Column="5"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted"
+					MouseDoubleClick="textBoxVolaFall_Symbols_MouseDoubleClick" />
+				<TextBox
+					Name="textBoxVolaFall_Vola"
+					Background="#ffe6e6"
+					Width="75"
+					Grid.Column="6"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaFall_Correlation"
+					Background="#ffe6e6"
+					Width="75"
+					Grid.Column="7"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaFall_zScore"
+					Background="#ffe6e6"
+					Width="75"
+					Grid.Column="8"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaNoChange_Symbols"
+					Background="#ded8e6"
+					Width="105"
+					Grid.Column="10"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted"
+					MouseDoubleClick="textBoxVolaNoChange_Symbols_MouseDoubleClick" />
+				<TextBox
+					Name="textBoxVolaNoChange_Vola"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="11"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaNoChange_Correlation"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="12"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+				<TextBox
+					Name="textBoxVolaNoChange_zScore"
+					Background="#ded8e6"
+					Width="75"
+					Grid.Column="13"
+					ContextMenu="{x:Null}"
+					CommandManager.PreviewExecuted="textBox_PreviewExecuted" />
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

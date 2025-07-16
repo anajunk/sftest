@@ -1,0 +1,47 @@
+<Window
+	x:Class="New_SF_IT.CustomMessageBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	Icon="pack://application:,,,/images/logo4.png"
+	Title="Smart Trading Tool"
+	Height="220"
+	Width="400">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Border
+			Grid.Row="0"
+			Margin="0"
+			Background="#FFFFFFFF"
+			CornerRadius="10"
+			Padding="10">
+			<TextBlock
+				Name="MessageTextBlock"
+				Text="Your free analysis is over toady, Try again tomorrow or&#xA;Buy full version to experience&#xA;Any query please call:&#xA;+91 6382157871, +91 6382491992, +91 6381034468"
+				TextWrapping="Wrap"
+				FontSize="15"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Left"
+				TextAlignment="Left" />
+		</Border>
+		<StackPanel
+			Grid.Row="1"
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			Margin="10">
+			<Button
+				Content="OK"
+				Width="75"
+				Height="30"
+				Margin="5"
+				Background="#4CAF50"
+				Foreground="#FFFFFFFF"
+				FontWeight="Bold"
+				Click="OkButton_Click" />
+		</StackPanel>
+	</Grid>
+</Window>

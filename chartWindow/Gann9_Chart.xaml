@@ -1,0 +1,520 @@
+<Window
+	x:Class="New_SF_IT.chartWindow.Gann9_Chart" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:New_SF_IT.chartWindow"
+	ResizeMode="NoResize"
+	Title="Gann Square of 9 Chart"
+	WindowStartupLocation="CenterScreen"
+	Icon="pack://application:,,,/images/logo4.png"
+	Height="490"
+	Width="870">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="30" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Grid.Row="0">
+			<TextBlock
+				Name="decision"
+				Text="Buy Decision Chart"
+				FontSize="15"
+				Margin="10 9 0 0"
+				FontWeight="SemiBold" />
+		</StackPanel>
+		<Grid
+			Row="1"
+			Margin="0,10,0,0"
+			HorizontalAlignment="Center">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						TargetType="{x:Type Button}"
+						x:Key="{x:Type Button}">
+						<Setter
+							Property="IsEnabled"
+							Value="False" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+				<RowDefinition
+					Height="43" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+				<ColumnDefinition
+					Width="90" />
+			</Grid.ColumnDefinitions>
+			<Button
+				Name="gs9T_57"
+				Grid.Column="0"
+				Grid.Row="0"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_56"
+				Grid.Column="0"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_55"
+				Grid.Column="0"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_54"
+				Grid.Column="0"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_53"
+				Grid.Column="0"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_52"
+				Grid.Column="0"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_51"
+				Grid.Column="0"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_50"
+				Grid.Column="0"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_81"
+				Grid.Column="0"
+				Grid.Row="8"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_58"
+				Grid.Column="1"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_31"
+				Grid.Column="1"
+				Grid.Row="1"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_30"
+				Grid.Column="1"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_29"
+				Grid.Column="1"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_28"
+				Grid.Column="1"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_27"
+				Grid.Column="1"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_26"
+				Grid.Column="1"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_49"
+				Grid.Column="1"
+				Grid.Row="7"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_80"
+				Grid.Column="1"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_59"
+				Grid.Column="2"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_32"
+				Grid.Column="2"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_13"
+				Grid.Column="2"
+				Grid.Row="2"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_12"
+				Grid.Column="2"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_11"
+				Grid.Column="2"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_10"
+				Grid.Column="2"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_25"
+				Grid.Column="2"
+				Grid.Row="6"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_48"
+				Grid.Column="2"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_79"
+				Grid.Column="2"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_60"
+				Grid.Column="3"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_33"
+				Grid.Column="3"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_14"
+				Grid.Column="3"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_3"
+				Grid.Column="3"
+				Grid.Row="3"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_2"
+				Grid.Column="3"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_9"
+				Grid.Column="3"
+				Grid.Row="5"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_24"
+				Grid.Column="3"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_47"
+				Grid.Column="3"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_78"
+				Grid.Column="3"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_61"
+				Grid.Column="4"
+				Grid.Row="0"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_34"
+				Grid.Column="4"
+				Grid.Row="1"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_15"
+				Grid.Column="4"
+				Grid.Row="2"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_4"
+				Grid.Column="4"
+				Grid.Row="3"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_1"
+				Grid.Column="4"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_8"
+				Grid.Column="4"
+				Grid.Row="5"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_23"
+				Grid.Column="4"
+				Grid.Row="6"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_46"
+				Grid.Column="4"
+				Grid.Row="7"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_77"
+				Grid.Column="4"
+				Grid.Row="8"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_62"
+				Grid.Column="5"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_35"
+				Grid.Column="5"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_16"
+				Grid.Column="5"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_5"
+				Grid.Column="5"
+				Grid.Row="3"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_6"
+				Grid.Column="5"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_7"
+				Grid.Column="5"
+				Grid.Row="5"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_22"
+				Grid.Column="5"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_45"
+				Grid.Column="5"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_76"
+				Grid.Column="5"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_63"
+				Grid.Column="6"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_36"
+				Grid.Column="6"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_17"
+				Grid.Column="6"
+				Grid.Row="2"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_18"
+				Grid.Column="6"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_19"
+				Grid.Column="6"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_20"
+				Grid.Column="6"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_21"
+				Grid.Column="6"
+				Grid.Row="6"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_44"
+				Grid.Column="6"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_75"
+				Grid.Column="6"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_64"
+				Grid.Column="7"
+				Grid.Row="0"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_37"
+				Grid.Column="7"
+				Grid.Row="1"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_38"
+				Grid.Column="7"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_39"
+				Grid.Column="7"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_40"
+				Grid.Column="7"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_41"
+				Grid.Column="7"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_42"
+				Grid.Column="7"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_43"
+				Grid.Column="7"
+				Grid.Row="7"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_74"
+				Grid.Column="7"
+				Grid.Row="8"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_65"
+				Grid.Column="8"
+				Grid.Row="0"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_66"
+				Grid.Column="8"
+				Grid.Row="1"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_67"
+				Grid.Column="8"
+				Grid.Row="2"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_68"
+				Grid.Column="8"
+				Grid.Row="3"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_69"
+				Grid.Column="8"
+				Grid.Row="4"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+			<Button
+				Name="gs9T_70"
+				Grid.Column="8"
+				Grid.Row="5"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_71"
+				Grid.Column="8"
+				Grid.Row="6"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_72"
+				Grid.Column="8"
+				Grid.Row="7"
+				Foreground="#545454" />
+			<Button
+				Name="gs9T_73"
+				Grid.Column="8"
+				Grid.Row="8"
+				FontWeight="Medium"
+				Foreground="#FF191970" />
+		</Grid>
+	</Grid>
+</Window>

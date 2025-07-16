@@ -1,0 +1,485 @@
+<UserControl
+	x:Class="New_SF_IT.pairTrade" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:New_SF_IT" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
+	Background="#FFFFFFFF">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="20*" />
+			<RowDefinition
+				Height="43*" />
+			<RowDefinition
+				Height="37*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="18*" />
+				<ColumnDefinition
+					Width="15*" />
+				<ColumnDefinition
+					Width="15*" />
+				<ColumnDefinition
+					Width="15*" />
+				<ColumnDefinition
+					Width="17*" />
+				<ColumnDefinition
+					Width="20*" />
+			</Grid.ColumnDefinitions>
+			<GroupBox
+				Grid.Column="0"
+				Background="#E5E2FA"
+				BorderBrush="#FF000000"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="200"
+				Height="100"
+				Style="{StaticResource pairTradeGroupBox}">
+				<HeaderedContentControl.Header>
+					<Label
+						FontWeight="SemiBold"
+						Margin="0 0 0 18"
+						FontSize="15">Instrument:</Label>
+				</HeaderedContentControl.Header>
+				<ComboBox
+					Name="instrument"
+					VerticalAlignment="Center"
+					Width="125"
+					ToolTip="Select your Instrument"
+					HorizontalAlignment="Center"
+					IsTabStop="True"
+					Style="{StaticResource pairTradeComboBox}">
+					<ComboBoxItem
+						Content="STOCK FUTURE" />
+					<ComboBoxItem
+						Content="INDEX FUTURE" />
+				</ComboBox>
+			</GroupBox>
+			<GroupBox
+				Grid.Column="1"
+				Background="#C2C1ED"
+				BorderBrush="#FF000000"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="150"
+				Height="100"
+				Style="{StaticResource pairTradeGroupBox}">
+				<HeaderedContentControl.Header>
+					<Label
+						FontWeight="SemiBold"
+						Margin="0 0 0 18"
+						FontSize="15">Symbol #1:</Label>
+				</HeaderedContentControl.Header>
+				<controls:AutoCompleteBox
+					Name="scriptCode1"
+					VerticalAlignment="Center"
+					IsTextCompletionEnabled="True"
+					ToolTip="Type &amp; select your Symbol"
+					HorizontalAlignment="Center"
+					Text="ICICIBANK">
+					<controls:AutoCompleteBox.TextBoxStyle>
+						<Style
+							TargetType="{x:Type TextBox}">
+							<Setter
+								Property="TextBox.CharacterCasing"
+								Value="Upper" />
+							<Setter
+								Property="Width"
+								Value="112" />
+						</Style>
+					</controls:AutoCompleteBox.TextBoxStyle>
+				</controls:AutoCompleteBox>
+			</GroupBox>
+			<GroupBox
+				Grid.Column="2"
+				Background="#C2C1ED"
+				BorderBrush="#FF000000"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="150"
+				Height="100"
+				Style="{StaticResource pairTradeGroupBox}">
+				<HeaderedContentControl.Header>
+					<Label
+						FontWeight="SemiBold"
+						Margin="0 0 0 18"
+						FontSize="15">Symbol #2:</Label>
+				</HeaderedContentControl.Header>
+				<controls:AutoCompleteBox
+					Name="scriptCode2"
+					VerticalAlignment="Center"
+					IsTextCompletionEnabled="True"
+					ToolTip="Type &amp; select your Symbol"
+					HorizontalAlignment="Center"
+					Text="HDFCBANK">
+					<controls:AutoCompleteBox.TextBoxStyle>
+						<Style
+							TargetType="{x:Type TextBox}">
+							<Setter
+								Property="TextBox.CharacterCasing"
+								Value="Upper" />
+							<Setter
+								Property="Width"
+								Value="112" />
+						</Style>
+					</controls:AutoCompleteBox.TextBoxStyle>
+				</controls:AutoCompleteBox>
+			</GroupBox>
+			<GroupBox
+				Grid.Column="3"
+				Background="#C2C1ED"
+				BorderBrush="#FF000000"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="150"
+				Height="100"
+				Style="{StaticResource pairTradeGroupBox}">
+				<HeaderedContentControl.Header>
+					<Label
+						FontWeight="SemiBold"
+						Margin="0 0 0 18"
+						FontSize="15">Symbol #3:</Label>
+				</HeaderedContentControl.Header>
+				<controls:AutoCompleteBox
+					Name="scriptCode3"
+					VerticalAlignment="Center"
+					IsTextCompletionEnabled="True"
+					ToolTip="Type &amp; select your Symbol"
+					HorizontalAlignment="Center"
+					Text="AXISBANK">
+					<controls:AutoCompleteBox.TextBoxStyle>
+						<Style
+							TargetType="{x:Type TextBox}">
+							<Setter
+								Property="TextBox.CharacterCasing"
+								Value="Upper" />
+							<Setter
+								Property="Width"
+								Value="112" />
+						</Style>
+					</controls:AutoCompleteBox.TextBoxStyle>
+				</controls:AutoCompleteBox>
+			</GroupBox>
+			<GroupBox
+				Grid.Column="4"
+				Background="#E5E2FA"
+				BorderBrush="#FF000000"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="200"
+				Height="100"
+				Style="{StaticResource pairTradeGroupBox}">
+				<HeaderedContentControl.Header>
+					<Label
+						FontWeight="SemiBold"
+						Margin="0 0 0 18"
+						FontSize="15">Expiry:</Label>
+				</HeaderedContentControl.Header>
+				<ComboBox
+					Name="expiry"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Style="{StaticResource pairTradeComboBox}"
+					ItemsSource="{Binding expiryDate, Mode=OneWay}" />
+			</GroupBox>
+			<Grid
+				Column="5">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="50*" />
+					<RowDefinition
+						Height="50*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="50*" />
+					<ColumnDefinition
+						Width="50*" />
+				</Grid.ColumnDefinitions>
+				<CheckBox
+					Name="intraday"
+					Grid.Row="0"
+					Margin="10 10 0 0"
+					Grid.Column="0"
+					Style="{StaticResource CustomCheckBoxStyle}"
+					FontSize="15"
+					Content="Intraday"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Checked="checkBoxChecked" />
+				<CheckBox
+					Name="positional"
+					Grid.Row="0"
+					Margin="0 10 0 0"
+					Grid.Column="1"
+					Style="{StaticResource CustomCheckBoxStyle}"
+					FontSize="15"
+					Content="Positional"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					IsChecked="True"
+					Checked="checkBoxChecked" />
+				<Button
+					Name="loadButton"
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					Style="{StaticResource CustomButtonStyle2}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Width="150"
+					Height="40"
+					FontWeight="Bold"
+					Content="Load &amp; Analyse"
+					Click="LoadData" />
+			</Grid>
+		</Grid>
+		<Grid
+			Name="PairTradeReport_Grid"
+			Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="47*" />
+				<ColumnDefinition
+					Width="53*" />
+			</Grid.ColumnDefinitions>
+			<RichTextBox
+				Name="techReport"
+				Grid.Column="0"
+				FontSize="13"
+				Padding="10"
+				IsReadOnly="True"
+				Background="#E5E2FA" />
+			<RichTextBox
+				Name="intraPosiAnalysisReport"
+				Grid.Column="1"
+				FontSize="13"
+				Padding="10"
+				Background="#C2C1ED"
+				VerticalScrollBarVisibility="Visible"
+				IsReadOnly="True" />
+		</Grid>
+		<Grid
+			Row="2">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="11*" />
+					<RowDefinition
+						Height="89*" />
+				</Grid.RowDefinitions>
+				<Label
+					HorizontalAlignment="Center"
+					Grid.Row="0"
+					VerticalAlignment="Bottom"
+					FontSize="15">Pair Trade Table</Label>
+				<FlowDocumentScrollViewer
+					Grid.Row="1">
+					<FlowDocument>
+						<Table
+							Name="PRtable"
+							BorderBrush="#FF000000"
+							BorderThickness="1"
+							FontSize="14"
+							FontFamily="Segoe UI">
+							<Table.Columns>
+								<TableColumn
+									Width="10*" />
+								<TableColumn
+									Width="30*" />
+								<TableColumn
+									Width="30*" />
+								<TableColumn
+									Width="30*" />
+							</Table.Columns>
+							<TableRowGroup>
+								<TableRow
+									Background="#E5E2FA">
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											FontWeight="Medium">Pair #1</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											FontWeight="Medium">Pair #2</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											FontWeight="Medium">Pair #3</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Beta</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="beta_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="beta_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="beta_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Alpha</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="alpha_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="alpha_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="alpha_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Sharp Ratio</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="sharpRatio_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="sharpRatio_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="sharpRatio_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Jensen Alpha</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="jensenAlpha_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="jensenAlpha_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="jensenAlpha_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Treynor Ratio</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="treynorRatio_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="treynorRatio_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="treynorRatio_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Correlation</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="correlation_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="correlation_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="correlation_pair3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Background="#C2C1ED"
+											FontWeight="Medium">Net Beta Decoupling</Paragraph>
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="netBetaDecoupling_pair1" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="netBetaDecoupling_pair2" />
+									</TableCell>
+									<TableCell
+										Style="{StaticResource pairTradeTableCell}">
+										<Paragraph
+											Name="netBetaDecoupling_pair3" />
+									</TableCell>
+								</TableRow>
+							</TableRowGroup>
+						</Table>
+					</FlowDocument>
+				</FlowDocumentScrollViewer>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

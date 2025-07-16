@@ -1,0 +1,545 @@
+<UserControl
+	x:Class="New_SF_IT.EF_Designs.GAV" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:New_SF_IT.EF_Designs">
+	<ScrollViewer
+		VerticalScrollBarVisibility="Auto">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="7.5*" />
+				<RowDefinition
+					Height="7.5*" />
+				<RowDefinition
+					Height="5*" />
+				<RowDefinition
+					Height="80*" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Grid.Row="0"
+				FontSize="14"
+				HorizontalAlignment="Center"
+				Margin="0 7 0 0"
+				VerticalAlignment="Center"
+				FontWeight="Bold">Gann Angle Volatility:</TextBlock>
+			<Grid
+				VerticalAlignment="Top"
+				Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="50*" />
+					<ColumnDefinition
+						Width="50*" />
+				</Grid.ColumnDefinitions>
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							TargetType="{x:Type Paragraph}"
+							x:Key="{x:Type Paragraph}">
+							<Setter
+								Property="FontSize"
+								Value="14" />
+							<Setter
+								Property="FontWeight"
+								Value="Normal" />
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<FlowDocumentScrollViewer
+					Grid.Column="0"
+					HorizontalScrollBarVisibility="Hidden"
+					VerticalScrollBarVisibility="Hidden">
+					<FlowDocument
+						Name="GAV_buyTargets">
+						<Table
+							BorderBrush="#FFFFFFFF"
+							BorderThickness="1">
+							<FrameworkContentElement.Resources>
+								<ResourceDictionary>
+									<Style
+										TargetType="{x:Type TableCell}"
+										x:Key="{x:Type TableCell}">
+										<Setter
+											Property="TableCell.Padding"
+											Value="0" />
+										<Setter
+											Property="TableCell.LineHeight"
+											Value="20" />
+										<Setter
+											Property="FontSize"
+											Value="15" />
+										<Setter
+											Property="FontFamily"
+											Value="Tunga" />
+										<Setter
+											Property="Background"
+											Value="#F7F9FC" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="TableCell.TextAlignment"
+											Value="Center" />
+										<Setter
+											Property="TableCell.BorderBrush"
+											Value="#BABABA" />
+										<Setter
+											Property="TableCell.BorderThickness"
+											Value="0.5" />
+									</Style>
+									<Style
+										TargetType="{x:Type Paragraph}"
+										x:Key="{x:Type Paragraph}">
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="Block.Padding"
+											Value="70 0 0 0" />
+										<Setter
+											Property="Block.TextAlignment"
+											Value="Left" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkContentElement.Resources>
+							<TableRowGroup>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_Up_Trend"
+											FontWeight="Bold"
+											Background="#C5EBAA"
+											Foreground="#FF000000">UPTREND</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="Bold"
+											Foreground="#49243E">Cycle 1</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C1_Name">Buy Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T1_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T2_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T3_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_stopLoss_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7" />
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="Bold"
+											Background="#E0EBF7"
+											Foreground="#49243E">Cycle 2</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C2_Name"
+											Background="#E0EBF7">Buy Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T1_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T2_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T3_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_stopLoss_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph />
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="Bold"
+											Foreground="#49243E">Cycle 3</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C3_Name">Buy Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T1_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T2_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_T3_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_buy_stopLoss_C3" />
+									</TableCell>
+								</TableRow>
+							</TableRowGroup>
+						</Table>
+					</FlowDocument>
+				</FlowDocumentScrollViewer>
+				<FlowDocumentScrollViewer
+					Grid.Column="1"
+					HorizontalScrollBarVisibility="Hidden"
+					VerticalScrollBarVisibility="Hidden">
+					<FlowDocument
+						Name="GAV_sellTargets">
+						<Table>
+							<FrameworkContentElement.Resources>
+								<ResourceDictionary>
+									<Style
+										TargetType="{x:Type TableCell}"
+										x:Key="{x:Type TableCell}">
+										<Setter
+											Property="TableCell.Padding"
+											Value="0" />
+										<Setter
+											Property="TableCell.LineHeight"
+											Value="20" />
+										<Setter
+											Property="FontSize"
+											Value="15" />
+										<Setter
+											Property="FontFamily"
+											Value="Tunga" />
+										<Setter
+											Property="Background"
+											Value="#FFFFFFFF" />
+										<Setter
+											Property="Foreground"
+											Value="#FF000000" />
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="TableCell.TextAlignment"
+											Value="Center" />
+										<Setter
+											Property="TableCell.BorderBrush"
+											Value="#BABABA" />
+										<Setter
+											Property="TableCell.BorderThickness"
+											Value="0.5" />
+									</Style>
+									<Style
+										TargetType="{x:Type Paragraph}"
+										x:Key="{x:Type Paragraph}">
+										<Setter
+											Property="FontWeight"
+											Value="SemiBold" />
+										<Setter
+											Property="Block.Padding"
+											Value="70 0 0 0" />
+										<Setter
+											Property="Block.TextAlignment"
+											Value="Left" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkContentElement.Resources>
+							<TableRowGroup>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_Down_Trend"
+											FontWeight="Bold"
+											Background="#FCAEAE"
+											Foreground="#FF000000">DOWNTREND</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="Bold"
+											Foreground="#49243E">Cycle 1</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C1_Name">Sell Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T1_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T2_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T3_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_stopLoss_C1" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7" />
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="bold"
+											Background="#E0EBF7"
+											Foreground="#49243E">Cycle 2</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C2_Name"
+											Background="#E0EBF7">Sell Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T1_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T2_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T3_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Background="#E0EBF7">StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_stopLoss_C2"
+											Background="#E0EBF7" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph />
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											FontWeight="Bold"
+											Foreground="#49243E">Cycle 3</Paragraph>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C3_Name">Sell Entry</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 1</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T1_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 2</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T2_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>Target 3</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_T3_C3" />
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>
+										<Paragraph>StopLoss</Paragraph>
+									</TableCell>
+									<TableCell>
+										<Paragraph
+											Name="display_GAV_sell_stopLoss_C3" />
+									</TableCell>
+								</TableRow>
+							</TableRowGroup>
+						</Table>
+					</FlowDocument>
+				</FlowDocumentScrollViewer>
+			</Grid>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

@@ -1,0 +1,852 @@
+<UserControl
+	x:Class="New_SF_IT.Equtiy_Future" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:New_SF_IT"
+	Background="#FFFFFFFF">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel
+		LastChildFill="True"
+		Background="#FFFFFFFF">
+		<Border
+			Padding="20"
+			BorderBrush="#27005D"
+			BorderThickness="0.2"
+			DockPanel.Dock="Top"
+			Width="auto">
+			<WrapPanel
+				HorizontalAlignment="Center"
+				Orientation="Horizontal">
+				<Label
+					ToolTip="Select Instrument"
+					Foreground="#27005D"
+					FontSize="15"
+					FontWeight="SemiBold"
+					VerticalAlignment="Center"
+					Margin="20,0,0,0"
+					IsTabStop="False"
+					Content="Instrument:" />
+				<ComboBox
+					Name="instrumentCb"
+					Style="{StaticResource SimpleComboBoxStyle}"
+					Width="150"
+					Margin="3"
+					IsTextSearchEnabled="True"
+					SelectedIndex="0"
+					BorderThickness="0"
+					FontWeight="SemiBold"
+					FontSize="14"
+					Height="26"
+					SelectionChanged="cbINSTRUMENT_SelectionChanged" />
+				<Label
+					ToolTip="Type script code in right textbox"
+					Foreground="#27005D"
+					FontSize="15"
+					FontWeight="SemiBold"
+					VerticalAlignment="Center"
+					Margin="20,0,0,0"
+					IsTabStop="False"
+					Content="Script Code:" />
+				<ComboBox
+					Name="symbolAutoBox"
+					Style="{StaticResource SimpleComboBoxStyle}"
+					FontSize="14"
+					Width="150"
+					Height="26"
+					Background="#D8D9DA"
+					BorderThickness="0"
+					FontWeight="SemiBold"
+					ToolTip="Type script code to load" />
+				<Label
+					Name="expLabel"
+					FontWeight="SemiBold"
+					Foreground="#27005D"
+					FontSize="15"
+					VerticalAlignment="Center"
+					Margin="20,0,0,0"
+					Content="Expiry:" />
+				<ComboBox
+					Name="expiryDateCb"
+					Style="{StaticResource SimpleComboBoxStyle}"
+					FontSize="14"
+					Margin="3"
+					BorderThickness="0"
+					Width="150"
+					Height="26"
+					FontWeight="SemiBold" />
+				<ComboBox
+					Name="expiryDate"
+					Style="{StaticResource SimpleComboBoxStyle}"
+					FontSize="14"
+					Margin="3"
+					BorderThickness="0"
+					Width="150"
+					Height="26"
+					Visibility="Collapsed"
+					FontWeight="SemiBold" />
+				<Border
+					Background="#8576FF"
+					BorderBrush="#8576FF"
+					BorderThickness="1"
+					CornerRadius="5"
+					Margin="30 5 5 5">
+					<Button
+						Name="btnLoad"
+						Style="{StaticResource CustomButtonStyle2}"
+						Content="Load"
+						FontWeight="SemiBold"
+						Click="btnLoad_Click" />
+				</Border>
+				<ProgressBar
+					Name="progressBar"
+					Visibility="Hidden"
+					Margin="10 0 0 0"
+					Height="10"
+					Foreground="#7882D6"
+					Background="#B5BAE6"
+					Width="100"
+					BorderBrush="#757575" />
+			</WrapPanel>
+		</Border>
+		<WrapPanel
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Orientation="Horizontal"
+			Width="auto"
+			Height="auto"
+			DockPanel.Dock="Top"
+			Margin="0 0 0 20"
+			Background="#00FFFFFF">
+			<Label
+				ToolTip="Select Type"
+				Foreground="#27005D"
+				FontSize="15"
+				FontWeight="SemiBold"
+				VerticalAlignment="Center"
+				Margin="20,10,0,10"
+				IsTabStop="False"
+				Content="Type:"
+				HorizontalAlignment="Center" />
+			<RadioButton
+				Name="IntradayRadioButton"
+				Content="Intraday"
+				Style="{StaticResource CustomRadioButtonStyle}"
+				Margin="10 0 0 0"
+				FontSize="14"
+				FontWeight="SemiBold"
+				VerticalAlignment="Center"
+				GroupName="TradeType"
+				Checked="IntradayRadioButton_Checked" />
+			<RadioButton
+				Name="PositionalRadioButton"
+				Content="Positional"
+				Style="{StaticResource CustomRadioButtonStyle}"
+				Margin="10 0 20 0"
+				FontSize="14"
+				FontWeight="SemiBold"
+				VerticalAlignment="Center"
+				GroupName="TradeType"
+				Checked="PositionalRadioButton_Checked" />
+			<Label
+				Name="PositionalLabel"
+				ToolTip="Select Type"
+				Visibility="Collapsed"
+				Foreground="#27005D"
+				FontSize="15"
+				FontWeight="SemiBold"
+				VerticalAlignment="Center"
+				Margin="8,10,0,10"
+				IsTabStop="False"
+				Content="No of days:"
+				HorizontalAlignment="Center" />
+			<TextBox
+				Name="PositionalTextBox"
+				Visibility="Collapsed"
+				Margin="10"
+				FontSize="14"
+				VerticalAlignment="Center"
+				Width="30"
+				PreviewTextInput="NumericTextBox_PreviewTextInput"
+				DataObject.Pasting="NumericTextBox_Pasting" />
+			<Border
+				Background="#8576FF"
+				BorderBrush="#8576FF"
+				BorderThickness="1"
+				CornerRadius="5"
+				Margin="15">
+				<Button
+					Name="btnLoad1"
+					IsEnabled="False"
+					Style="{StaticResource CustomButtonStyle2}"
+					Content="Calculate"
+					FontWeight="SemiBold"
+					Click="btnCal_Click" />
+			</Border>
+			<TextBlock
+				Name="ltpText"
+				Text=""
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontSize="16"
+				FontWeight="SemiBold"
+				Foreground="#394078" />
+		</WrapPanel>
+		<Grid>
+			<Separator
+				VerticalAlignment="Top"
+				Height="40"
+				Background="#8062D6"
+				Foreground="#8062D6" />
+		</Grid>
+		<StatusBar
+			DockPanel.Dock="Top"
+			Background="#27005D"
+			Height="30"
+			Visibility="Collapsed">
+			<StatusBarItem
+				HorizontalContentAlignment="Left">
+				<TextBlock
+					Name="TextBlockStatus"
+					Width="120" />
+			</StatusBarItem>
+			<Separator />
+			<StatusBarItem
+				HorizontalContentAlignment="Left">
+				<Label
+					Name="lblLoadMsg"
+					Padding="0">0</Label>
+			</StatusBarItem>
+			<Separator />
+			<StatusBarItem
+				HorizontalContentAlignment="Stretch">
+				<ProgressBar
+					Name="ProgressBarMain"
+					IsIndeterminate="False"
+					Width="100"
+					Height="20"
+					Foreground="#FFA3DB25"
+					Maximum="100"
+					ValueChanged="ProgressBarMain_ValueChanged" />
+			</StatusBarItem>
+			<Separator />
+			<StatusBarItem
+				HorizontalContentAlignment="Center">
+				<Label
+					Name="lblrefPrice"
+					Padding="0"
+					Foreground="#FFFFFFFF" />
+			</StatusBarItem>
+			<Separator />
+			<StatusBarItem
+				HorizontalContentAlignment="Center">
+				<Label
+					Name="bankNiftyMsg"
+					Padding="0"
+					Foreground="#FFFFFF00"
+					FontWeight="Bold" />
+			</StatusBarItem>
+			<StatusBarItem
+				HorizontalContentAlignment="Center">
+				<Label
+					Name="lblMsg"
+					Padding="0"
+					Foreground="#FFFFFFFF"
+					FontWeight="Bold" />
+			</StatusBarItem>
+		</StatusBar>
+		<Grid
+			DockPanel.Dock="Top"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch">
+			<TabControl
+				Name="tabControl"
+				FontSize="14"
+				FontWeight="SemiBold"
+				Margin="5 0 0 0"
+				DockPanel.Dock="Top"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type TabControl}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="*" />
+							</Grid.RowDefinitions>
+							<TabPanel
+								Grid.Row="0"
+								ZIndex="1"
+								Margin="0,0,4,-1"
+								IsItemsHost="True" />
+							<Border
+								Grid.Row="1"
+								BorderThickness="1"
+								BorderBrush="#00FFFFFF"
+								Background="{TemplateBinding Background}">
+								<ContentPresenter
+									Content="{TemplateBinding SelectedContent}"
+									ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+									Margin="{TemplateBinding Padding}" />
+							</Border>
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+				<TabItem
+					Name="tabItem1"
+					Header="Gann Study Prices"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab1_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem2"
+					Header="Volatility Study"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab2_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem3"
+					Header="Fibonacci Study"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab3_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem4"
+					Header="Elliot Study"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab4_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem5"
+					Header="Average and Pivot Principle"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab5_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem7"
+					Header="Gann Study Time"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab7_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem11"
+					Header="Beta Decupling"
+					Visibility="Collapsed"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab8_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem12"
+					Header="Zscore Principle"
+					Visibility="Collapsed"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab9_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem13"
+					Header="Index Decupling"
+					Visibility="Collapsed"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab10_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem14"
+					Header="Sector Decupling"
+					Visibility="Collapsed"
+					Style="{StaticResource MainTabStyle}"
+					PreviewMouseDown="EFmaintab11_PreviewMouseDown" />
+				<TabItem
+					Name="tabItem20"
+					Header="Summary"
+					Visibility="Collapsed"
+					Style="{StaticResource MainTabStyle}" />
+			</TabControl>
+		</Grid>
+		<Grid
+			DockPanel.Dock="Top"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="101*" />
+				<ColumnDefinition
+					Width="299*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<TabControl
+				Name="tabControl1"
+				Margin="0,-8,0,0"
+				Grid.ColumnSpan="2">
+				<TabItem
+					Name="tbMainHeader"
+					Margin="0"
+					Padding="0"
+					FontSize="13"
+					FontWeight="SemiBold"
+					Visibility="Visible">
+					<TabControl
+						Name="allTab"
+						TabStripPlacement="Left">
+						<TabItem
+							Name="subtab0"
+							Header="GAV"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}">
+							<Frame
+								Name="EqFrame0"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab1"
+							Header="GAV"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GAV_Tabclick">
+							<Frame
+								Name="EqFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab2"
+							Header="NC Trend"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="NC_Trend_Tabclick">
+							<Frame
+								Name="EqFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab3"
+							Header="Gann Vibration"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Gann_Vib_Tabclick">
+							<Frame
+								Name="EqFrame3"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab4"
+							Header="Intraday Vibration"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Intraday_Vib_Tabclick">
+							<Frame
+								Name="EqFrame4"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab5"
+							Header="Gann square of 9"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Gann9_Tabclick">
+							<Frame
+								Name="EqFrame5"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab6"
+							Header="Gann square of 12"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Gann12_Tabclick">
+							<Frame
+								Name="EqFrame6"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab7"
+							Header="Gann Hexagon"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannHex_TabClick">
+							<Frame
+								Name="EqFrame7"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab8"
+							Header="Intraday Tetrahedron"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="IntradayTetra_TabClick">
+							<Frame
+								Name="EqFrame8"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab9"
+							Header="Gann Price Tool"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Gann_Price_TabClick">
+							<Frame
+								Name="EqFrame9"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab10"
+							Header="Summary"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Summary_TabClick">
+							<Frame
+								Name="EqFrame10"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab11"
+							Header="Volatality Analysis"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Volatality_Tabclick">
+							<Frame
+								Name="VolFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab12"
+							Header="1 SD"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="OneSD_Tabclick">
+							<Frame
+								Name="VolFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab14"
+							Header="Volatality using LN"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="VolatalityLN_Tabclick">
+							<Frame
+								Name="VolFrame5"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtabOHLC"
+							Header="Volatality using OHLC"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="VolatalityOHLC_Tabclick">
+							<Frame
+								Name="VolFrame6"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtabDrift"
+							Header="Volatality using Drift"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="VolatalityDrift_Tabclick">
+							<Frame
+								Name="VolFrame7"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab13"
+							Header="Intraday Top and Bottom"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="IntradayTopBottom_Tabclick">
+							<Frame
+								Name="VolFrame3"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtabnif"
+							Header="Nifty Top and Bottom"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="NiftyTopBottom_Tabclick">
+							<Frame
+								Name="VolFrame4"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtabscan"
+							Header="Volatality Scanner"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="VolatalityScanner_Tabclick">
+							<Frame
+								Name="VolFrame8"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab15"
+							Header="Summary"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="VolatalitySummary_Tabclick">
+							<Frame
+								Name="VolFrame_Sum"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab16"
+							Header="Retracement"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="FiboRetrace_Tabclick">
+							<Frame
+								Name="FiboFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab17"
+							Header="Parallel Projection"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="FiboParallel_Tabclick">
+							<Frame
+								Name="FiboFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab18"
+							Header="Planline"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab19"
+							Header="Fibo Arc"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab20"
+							Header="Fibo Growth and Expansion"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab21"
+							Header="Summary"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab22"
+							Header="Impulsive Wave"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Elliot_Impulsive_Tabclick">
+							<Frame
+								Name="ElliotFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab23"
+							Header="Corrective Wave"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Elliot_Corrective_Tabclick">
+							<Frame
+								Name="ElliotFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab24"
+							Header="Wave Pattern"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab25"
+							Header="Ending Diagonal"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab26"
+							Header="Triangles"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab27"
+							Header="Zig Zag"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtabsum"
+							Header="Summary"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab28"
+							Header="Pivot"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Pivot_Tabclick">
+							<Frame
+								Name="AvrFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab29"
+							Header="Camrila"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Camrila_Tabclick">
+							<Frame
+								Name="AvrFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab30"
+							Header="Simple Moving Average"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab31"
+							Header="EMA"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab32"
+							Header="Simple Moving Average"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab33"
+							Header="Summary"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="maintab7"
+							Header="Option Binomial"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="maintab8"
+							Header="Option Trinomial"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="maintab9"
+							Header="Black and Soul"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="maintab10"
+							Header="Option Scanner"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}" />
+						<TabItem
+							Name="subtab34"
+							Header="Low Angle"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannLow_Tabclick">
+							<Frame
+								Name="TimeFrame1"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab35"
+							Header="High Angle"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannHigh_Tabclick">
+							<Frame
+								Name="TimeFrame2"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab36"
+							Header="Static Angle"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannStatic_Tabclick">
+							<Frame
+								Name="TimeFrame3"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab37"
+							Header="Gann Angle"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannAngle_Tabclick">
+							<Frame
+								Name="TimeFrame4"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab38"
+							Header="High to Low²"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="HighLow_Tabclick">
+							<Frame
+								Name="TimeFrame5"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab39"
+							Header="Hexagon Angle"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="Hexagon_Tabclick">
+							<Frame
+								Name="TimeFrame6"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab40"
+							Header="Price Time"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="PriceTime_TabClick">
+							<Frame
+								Name="TimeFrame7"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab41"
+							Header="Price Range"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="PriceRange_TabClick">
+							<Frame
+								Name="TimeFrame8"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+						<TabItem
+							Name="subtab42"
+							Header="Summary"
+							Visibility="Collapsed"
+							Style="{StaticResource SubTabStyle}"
+							PreviewMouseDown="GannSummary_TabClick">
+							<Frame
+								Name="TimeFrame9"
+								Grid.Column="1"
+								NavigationUIVisibility="Hidden" />
+						</TabItem>
+					</TabControl>
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</DockPanel>
+</UserControl>
